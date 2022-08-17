@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.InfoPokeActivity">
+
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/info_poke_imagem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/info_poke_imagem"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@color/purple_200"
+        >
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        app:layout_constraintTop_toBottomOf="@id/info_poke_imagem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/info_poke_type_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/info_poke_type1"
+                        style="@style/info_poke_type"
+                        android:backgroundTint="@color/black">
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/info_poke_type2"
+                        style="@style/info_poke_type"
+                        android:backgroundTint="@color/black">
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/info_poke_size_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_poke_type_layout"
+                    app:layout_constraintVertical_bias="0">
+
+                    <TextView
+                        style="@style/info_poke_size_text"
+                        android:text="1m 43" />
+
+                    <TextView
+                        style="@style/info_poke_size_text"
+                        android:text="80 kg" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/info_poke_stats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_poke_size_layout">
+
+
+                    <LinearLayout
+                        android:id="@+id/info_poke_stats_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/info_poke_stats_hp"
+                            style="@style/info_poke_stats_layout">
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:textStyle="bold"
+                                android:text="HP"></TextView>
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="99"></TextView>
+
+                            <ImageView
+                                style="@style/info_poke_stats_bar"
+                                android:src="#FFFF0000"></ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/info_poke_stats_ataque"
+                            style="@style/info_poke_stats_layout">
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:textStyle="bold"
+                                android:text="ATK"></TextView>
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="99"></TextView>
+
+                            <ImageView
+                                style="@style/info_poke_stats_bar"
+                                android:src="#FFFF0000"></ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/info_poke_stats_defesa"
+                            style="@style/info_poke_stats_layout">
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:textStyle="bold"
+                                android:text="DEF"></TextView>
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="99"></TextView>
+
+                            <ImageView
+                                style="@style/info_poke_stats_bar"
+                                android:src="#FFFF0000"></ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/info_poke_stats_ataque_especial"
+                            style="@style/info_poke_stats_layout">
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:textStyle="bold"
+                                android:text="SAT"></TextView>
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="99"></TextView>
+
+                            <ImageView
+                                style="@style/info_poke_stats_bar"
+                                android:src="#FFFF0000"></ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/info_poke_stats_defesa_especial"
+                            style="@style/info_poke_stats_layout">
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="SDE"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="99" />
+
+                            <ImageView
+                                style="@style/info_poke_stats_bar"
+                                android:src="#FFFF0000"></ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/info_poke_stats_velocidade"
+                            style="@style/info_poke_stats_layout">
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="SPD"
+                                android:textStyle="bold"></TextView>
+
+                            <TextView
+                                style="@style/info_poke_stats_text"
+                                android:text="99"></TextView>
+
+                            <ImageView
+                                style="@style/info_poke_stats_bar"
+                                android:src="#FFFF0000"></ImageView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHorizontal_bias="1"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
