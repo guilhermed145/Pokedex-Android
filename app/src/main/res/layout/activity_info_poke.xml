@@ -6,11 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.InfoPokeActivity">
 
+    <ImageView
+        android:id="@+id/lista_poke_toolbar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:scaleType="matrix"
+        android:src="@drawable/bar_bg3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
+
     <include
         android:id="@+id/toolbar_main"
         layout="@layout/toolbar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@id/info_poke_imagem"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />

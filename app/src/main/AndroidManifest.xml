@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="guilherme.portfolio.pokeapp">
+    package="com.portfolio.pokeapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokeApp">
         <activity
-            android:name=".view.activity.InfoPokeActivity"
+            android:name="com.portfolio.pokeapp.view.activity.InfoPokeActivity"
             android:exported="false"
             android:label="@string/title_activity_info_poke"
             android:theme="@style/Theme.PokeApp.NoActionBar"
-            android:parentActivityName=".view.activity.ListaPokeActivity"/>
+            android:parentActivityName="com.portfolio.pokeapp.view.activity.ListaPokeActivity"/>
         <activity
-            android:name=".view.activity.ListaPokeActivity"
+            android:name="com.portfolio.pokeapp.view.activity.ListaPokeActivity"
             android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
