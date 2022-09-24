@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewTreeObserver;
-import android.widget.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,37 +31,23 @@ public class ListaPokeActivity extends AppCompatActivity {
         Toolbar mainToolbar = findViewById(R.id.toolbar_main);
         setSupportActionBar(mainToolbar);
 
-        configuraListaPoke();
-
         repository = new PokeRepository(this);
-
-
+        configuraListaPoke();
     }
 
     private void configuraListaPoke() {
         ListaPokeRecyclerView listaPoke = findViewById(R.id.lista_poke_recyclerview);
         adapter = new ListaPokeAdapter(this);
-        listaPoke.setAdapter(adapter);
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(Pokemon pokemon) {
                 goToPokeInfo(pokemon);
             }
         });
-
-        listaPoke.getViewTreeObserver()
-                .addOnGlobalLayoutListener(
-                        new ViewTreeObserver.OnGlobalLayoutListener() {
-                            @Override
-                            public void onGlobalLayout() {
-                                Log.e("Teste #5", "onGlobalLayout: " + adapter.amountOfViewHolders, null);
-                                for (int i=1; i <= adapter.amountOfViewHolders; i++) {
-                                    getPokemon(i);
-                                }
-                                listaPoke.getViewTreeObserver()
-                                        .removeOnGlobalLayoutListener(this);
-                            }
-                        });
+        listaPoke.setAdapter(adapter);
+        for (int i = 1; i <= 151; i++) {
+            getPokemon(i);
+        }
     }
 
     @Override
@@ -85,9 +69,9 @@ public class ListaPokeActivity extends AppCompatActivity {
 
     }
 
-    public void goToPokeInfo(Pokemon pokemon){
-        Intent intent = new Intent(this,InfoPokeActivity.class);
-        intent.putExtra("name",pokemon.getPokeName());
+    public void goToPokeInfo(Pokemon pokemon) {
+        Intent intent = new Intent(this, InfoPokeActivity.class);
+        intent.putExtra("name", pokemon.getPokeName());
         startActivity(intent);
     }
 
@@ -95,13 +79,13 @@ public class ListaPokeActivity extends AppCompatActivity {
         repository.getPokemonFromApi(new PokeRepository.DataLoadedCallback<Pokemon>() {
             @Override
             public void ifSuccess(Pokemon pokemon) {
-                Log.e("Pegou o getPokemon(id)","Id e nome: " + id + " " + pokemon.getPokeName(),null);
-                adapter.addPokemon(pokemon, Integer.parseInt(pokemon.getId()));
+                Log.e("Pegou o getPokemon(id)", "Id e nome: " + id + " " + pokemon.getPokeName(), null);
+                adapter.addPokemon(pokemon, Integer.parseInt(pokemon.getId()) - 1);
             }
 
             @Override
             public void ifFailure(String error) {
-                Log.e("Erro no getPokemon(id)","id:" + id, null);
+                Log.e("Erro no getPokemon(id)", "id:" + id, null);
             }
         }, id);
     }
